@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Take a Chance</title>
+
+  <style>
+    :root {
+  --rose: #f43f5e;        /* stronger pink */
+  --deep-rose: #e11d48;   /* valentine red-pink */
+  --soft-bg: #ffe4e6;
+  --text-main: #4a0e1f;   /* softer pinkish text */
+  --text-soft: #9d174d;   /* rose accent */
+}
+
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", system-ui, -apple-system;
+    }
+
+    body {
+  background:
+    radial-gradient(circle at top,
+      #ffd6e0 0%,
+      #ffe4e6 35%,
+      #fff1f2 65%,
+      #ffffff 100%);
+  color: var(--text-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+
+    /* SECTION – spacing unchanged */
+    section {
+      max-width: 760px;
+      margin: auto;
+      padding: 90px 24px;
+      text-align: center;
+
+      opacity: 0;
+      transform: translateY(50px) scale(0.98);
+      animation: sectionReveal 1.4s cubic-bezier(.19,1,.22,1) forwards;
+    }
+
+    section:nth-child(2) { animation-delay: 0.4s; }
+    section:nth-child(3) { animation-delay: 0.8s; }
+    section:nth-child(4) { animation-delay: 1.2s; }
+    section:nth-child(5) { animation-delay: 1.6s; }
+    section:nth-child(6) { animation-delay: 2s; }
+
+    h1, h2, p {
+      opacity: 0;
+      transform: translateY(14px);
+      animation: textReveal 0.9s ease forwards;
+    }
+
+    h1 { animation-delay: 0.25s; }
+    h2 { animation-delay: 0.3s; }
+    p  { animation-delay: 0.4s; }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 14px;
+    }
+
+    .soft {
+      color: var(--text-soft);
+      font-style: italic;
+    }
+
+    /* HEART */
+    .heart {
+      font-size: 2.8rem;
+      margin-bottom: 22px;
+      animation: heartFloat 3.2s ease-in-out infinite;
+      filter: drop-shadow(0 6px 12px rgba(239,68,68,0.35));
+    }
+
+    /* PHOTO CARD */
+    .photo-wrapper {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .photo-card {
+      position: relative;
+      width: 460px;
+      height: 460px;
+      border-radius: 24px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 20px 45px rgba(239, 68, 68, 0.35);
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+      transition:
+        opacity 0.7s cubic-bezier(.4,0,.2,1),
+        transform 0.7s cubic-bezier(.4,0,.2,1),
+        filter 0.7s ease;
+    }
+
+    .photo-card img.funny {
+      opacity: 0;
+      transform: scale(1.05);
+    }
+
+    .photo-card:hover img.normal {
+      opacity: 0;
+      transform: scale(1.08);
+      filter: blur(1px);
+    }
+
+    .photo-card:hover img.funny {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .hint {
+      margin-top: 24px;
+      font-size: 1.5rem;
+      color: #9f1239;
+    }
+
+    /* CTA */
+    .cta {
+      margin-top: 10px;
+      padding: 18px 40px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--deep-rose), var(--rose));
+      color: #fff;
+      font-size: 1.15rem;
+      font-weight: 600;
+      box-shadow: 0 18px 40px rgba(190,18,60,0.45);
+      display: inline-block;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .cta:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 25px 55px rgba(190,18,60,0.55);
+    }
+    .courage{
+        padding-top: 120px;
+    }
+    .insta {
+      margin-top: 36px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--deep-rose);
+    }
+
+    footer {
+      padding: 60px 20px;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #9f1239;
+    }
+
+    @keyframes sectionReveal {
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes textReveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes heartFloat {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-6px) scale(1.05); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section>
+    <div class="heart">❤️</div>
+    <h1>Some feelings stay.</h1>
+    <p class="soft">Even when time moves on.</p>
+  </section>
+
+  <section>
+    <h2>Years passed quietly.</h2>
+    <p>Life happened.</p>
+    <p>Conversations paused.</p>
+    <p class="soft">But not every pause is an ending.</p>
+  </section>
+
+  <section>
+    <h2>There was always something there.</h2>
+    <p>Not pressure.</p>
+    <p>Not urgency.</p>
+    <p class="soft">Just a feeling that never left.</p>
+  </section>
+
+  <section>
+    <h2>She was never just a memory.</h2>
+
+    <div class="photo-wrapper">
+      <div class="photo-card">
+        <img src="normal.jpg" class="normal" alt="normal photo">
+        <img src="funny.png" class="funny" alt="funny photo">
+      </div>
+    </div>
+
+    <div class="hint">(hover once 😉)</div>
+  </section>
+
+  <section class="courage">
+    <div >
+ <h2>Trying once is courage 😉</h2>
+    </div>
+   
+  </section>
+
+  <section>
+    <div class="cta">Take a chance</div>
+    <div class="insta">📸 Instagram: <span>@prabodhee_g</span></div>
+  </section>
+
+  <footer>
+    🌹 Rose Day · From someone who wants you to try once
+  </footer>
+
+</body>
+</html>
